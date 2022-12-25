@@ -6,8 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import java.util.List;
+import com.example.gasgame.RoomDataDase.Entity.EntityIformationPerson;
+import com.example.gasgame.RoomDataDase.Entity.EntityPuzzleData;
+import com.example.gasgame.RoomDataDase.Entity.EntityScroll;
+import com.example.gasgame.RoomDataDase.Entity.EntityStageData;
 
+import java.util.List;
+// تاعوoriantaion وظيفتو انو الداتا بضل متاحه حتى لو الجهاز اتغير ال
 public class ViewModle extends AndroidViewModel {
     Reposetry reposetry;
     public ViewModle(@NonNull Application application) {
@@ -24,7 +29,7 @@ public class ViewModle extends AndroidViewModel {
        reposetry.updateScroll(scroll);
     };
 
-
+////////////////////iformationPerson///////////////////////////////
 
 
     public void insertinfoemation(EntityIformationPerson iformationPerson){
@@ -41,6 +46,33 @@ public class ViewModle extends AndroidViewModel {
     LiveData< List<EntityIformationPerson>> getallinformation(){
         return reposetry.getallinformation();
     };
+////////////////////////////////stage//////////////////////////
+void insertStageData(EntityStageData stageData){
+    reposetry.insertStageData(stageData);
+        }
+
+        void deletStageData(EntityStageData stageData){
+        reposetry.deletStageData(stageData);
+
+    }
+
+    void updateStageData(EntityStageData stageData){
+    reposetry.updateStageData(stageData);
+
+    }
+///////////////////////////puzzle////////////////////
+void insertPuzzleData(EntityPuzzleData puzzleData){
+ reposetry.insertPuzzleData(puzzleData);
+        }
 
 
+    void deletPuzzleData(EntityPuzzleData puzzleData){
+       reposetry.deletPuzzleData(puzzleData);
+
+    }
+
+    void updatePuzzleData(EntityPuzzleData puzzleData){
+       reposetry.updatePuzzleData(puzzleData);
+
+    }
 }

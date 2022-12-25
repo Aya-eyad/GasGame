@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.Notification.DEFAULT_SOUND " />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GasGame"
         tools:targetApi="31">
+        <service
+            android:name=".Service.MyService"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -28,8 +38,6 @@
         <activity
             android:name=".HomeActivity"
             android:exported="true">
-
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -37,8 +45,6 @@
         <activity
             android:name=".PlayActivity"
             android:exported="true">
-
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -46,8 +52,6 @@
         <activity
             android:name=".ProfileActivity"
             android:exported="true">
-
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -55,12 +59,12 @@
         <activity
             android:name=".SettingActivity"
             android:exported="true">
-
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+<receiver android:name=".Service.Notificationservice"/>
+
     </application>
 
 </manifest>

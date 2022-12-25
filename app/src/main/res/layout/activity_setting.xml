@@ -6,46 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".SettingActivity">
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="102dp"
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/sound_sw"
+        android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginTop="56dp"
-        android:text="."
+        android:layout_marginTop="50dp"
+        android:checked="true"
+        android:text="@string/Sound"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Switch
-        android:id="@+id/switch2"
-        android:layout_width="102dp"
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/notification_sw"
+        android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginTop="40dp"
-        android:text="."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.915"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="clear data"
+        android:checked="true"
+        android:layout_marginTop="50dp"
+        android:textSize="25sp"
+        android:text="@string/Notification"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch2" />
+
+        app:layout_constraintTop_toBottomOf="@+id/sound_sw" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_clear"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/shape_in_rectangle"
+        android:backgroundTint="#CF9134"
+        android:text="@string/Start_over"
+        android:textSize="20sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notification_sw" />
 
     <TextView
         android:id="@+id/tv_profile"
-        android:layout_width="129dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="102dp"
-        android:text="profile"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/Sign_in"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:background="@drawable/shape_in_rectangle"
+        android:backgroundTint="#EDA943"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_clear" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
