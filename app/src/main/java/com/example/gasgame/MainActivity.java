@@ -14,7 +14,15 @@ import android.view.animation.AnimationUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.gasgame.Model.Pattren;
+import com.example.gasgame.Model.Questions;
 import com.example.gasgame.databinding.ActivityMainBinding;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -36,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer=MediaPlayer.create(getBaseContext(),R.raw.sound);
         mediaPlayer.start();
 
-notificationchannel();
+//notificationchannelnel();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -50,15 +58,15 @@ notificationchannel();
 
     }
 
-    private void notificationchannel() {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID
-                    , "channel name", NotificationManager.IMPORTANCE_DEFAULT);
-
-            NotificationManager manager =getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
-    }
+//    private void notificationchannel() {
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+//            NotificationChannel channel = new NotificationChannel(CHANNEL_ID
+//                    , "channel name", NotificationManager.IMPORTANCE_DEFAULT);
+//
+//            NotificationManager manager =getSystemService(NotificationManager.class);
+//            manager.createNotificationChannel(channel);
+//        }
+//    }
 
 
 //    private void ParsjsonFromAssets(String string) {
@@ -92,8 +100,9 @@ notificationchannel();
 //            }
 //        } catch (JSONException e) {
 //            e.printStackTrace();
+//        } catch (JSONException ee) {
+//            ee.printStackTrace();
 //        }
-//
-//
-//    }
-}
+
+
+    }
