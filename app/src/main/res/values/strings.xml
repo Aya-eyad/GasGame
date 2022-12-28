@@ -12,6 +12,9 @@
     <string name="Start_over">Start over</string>
     <string name="Profile">profile</string>
     <string name="Sign_in">Sign in</string>
+    <string name="The_first_stage">The first stage</string>
+    <string name="The_second_stage">The second stage</string>
+    <string name="Num_of_poin_trequird">Num Of Point Requird</string>
     <string-array name="Countery">
         <item>Palestine</item>
         <item>Egypt</item>

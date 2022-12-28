@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".PlayActivity">
+    tools:context=".GameStageActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_player"
+        android:id="@+id/rv_gamestage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"

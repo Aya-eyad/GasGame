@@ -3,10 +3,10 @@ package com.example.gasgame.RoomDataDase.Entity;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
-
-@Entity(foreignKeys = {@ForeignKey(entity = EntityScroll.class
+//بيانات الالغاز
+@Entity(foreignKeys = {@ForeignKey(entity = EntityPuzzleData.class
         ,parentColumns = {"numOfPuzzle"},
-        childColumns = {"numStage"},
+        childColumns = {"    public int numberOfPattern;\n"},
         onDelete = ForeignKey.CASCADE,onUpdate = ForeignKey.CASCADE)})
 public class EntityScroll {
     @PrimaryKey
@@ -24,8 +24,10 @@ public class EntityScroll {
     String instructionaltext;
 
 
-    public EntityScroll(int numOfPuzzle, String puzzletext, String answer1, String answer2, String answer3, String answer4, String correctanswer, int numOfCollectedpoints
-            , int numStage, int time, String questionpattern, String instructionaltext) {
+    public EntityScroll(int numOfPuzzle, String puzzletext,
+                        String answer1, String answer2, String answer3,
+                        String answer4, String correctanswer, int numOfCollectedpoints
+           int time , int duration, String instructionaltext) {
         this.numOfPuzzle = numOfPuzzle;
         this.puzzletext = puzzletext;
         this.answer1 = answer1;
@@ -34,10 +36,9 @@ public class EntityScroll {
         this.answer4 = answer4;
         this.correctanswer = correctanswer;
         this.numOfCollectedpoints = numOfCollectedpoints;
-        this.numStage = numStage;
-        this.time = time;
-        this.questionpattern = questionpattern;
+        this.time=time;
         this.instructionaltext = instructionaltext;
+
     }
 
     public EntityScroll() {

@@ -60,6 +60,10 @@ void insertStageData(EntityStageData stageData){
     reposetry.updateStageData(stageData);
 
     }
+    LiveData<List<EntityStageData>> getallstagedata(){
+        return reposetry.getallstagedata();
+
+    }
 ///////////////////////////puzzle////////////////////
 void insertPuzzleData(EntityPuzzleData puzzleData){
  reposetry.insertPuzzleData(puzzleData);

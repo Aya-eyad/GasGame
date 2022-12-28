@@ -3,12 +3,21 @@ package com.example.gasgame.RoomDataDase.Entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity//بيانات المرحله
 public class EntityStageData {
 
     @PrimaryKey
     int numOfStage;
     int numOfPointRequird;
+    int minimum;
+
+    public int getMinimum() {
+        return minimum;
+    }
+
+    public void setMinimum(int minimum) {
+        this.minimum = minimum;
+    }
 
     public int getNumOfStage() {
         return numOfStage;

@@ -89,7 +89,7 @@ MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
     };
     LiveData< List<EntityIformationPerson>> getallinformation(){
         return daoInformationPerson.getallinformation();
-    };
+    }
 ////////////////////////////stage///////////////////////////////
 
 void insertStageData(EntityStageData stageData){
@@ -117,6 +117,10 @@ void insertStageData(EntityStageData stageData){
                 daoStageData.updateStageData(stageData);
             }
         });
+    }
+    LiveData<List<EntityStageData>> getallstagedata(){
+        return daoStageData.getallstagedata();
+
     }
 
 /////////////////////puzzle//////////////////////////

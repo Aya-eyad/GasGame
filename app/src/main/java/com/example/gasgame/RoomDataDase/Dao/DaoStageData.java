@@ -20,5 +20,7 @@ public interface DaoStageData {
     void deletStageData(EntityStageData stageData);
     @Update
     void updateStageData(EntityStageData stageData);
+@Query("select * from EntityStageData")
+LiveData<List<EntityStageData>> getallstagedata();
 
 }
