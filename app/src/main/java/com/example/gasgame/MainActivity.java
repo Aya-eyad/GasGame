@@ -1,5 +1,5 @@
 package com.example.gasgame;
-
+//*المسؤول عن ربط التطبيق بالفيرباز هو ملف الجيسون تبع جوجل*/
 
 import android.content.Intent;
 import android.os.Build;
@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.gasgame.Service.ServiceSound;
 import com.example.gasgame.Utility.Apputility;
 import com.example.gasgame.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONArray;
 import org.json.JSONException;

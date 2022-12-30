@@ -9,11 +9,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.gasgame.RoomDataDase.Entity.EntityIformationPerson;
-import com.example.gasgame.RoomDataDase.ViewModle;
+import com.example.gasgame.Roomdatabase.ViewModle;
 import com.example.gasgame.databinding.ActivityProfileBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.util.Calendar;
@@ -24,14 +23,18 @@ public class ProfileActivity extends AppCompatActivity {
     Calendar calendar;
     public static int date;
     ViewModle viewModle;
-    List<EntityIformationPerson>iformationPersonList;
+    FirebaseAuth mAuth;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        viewModle=new ViewModelProvider(this).get(ViewModle.class);
+        String email = binding.edEmail.getText().toString();
+        String password = binding.edPassword.getText().toString();
 
+//Resister();
 
         binding.edName.addTextChangedListener(new TextWatcher() {
 
@@ -99,7 +102,6 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = binding.edName.getText().toString();
-                String email = binding.edEmail.getText().toString();
                 String birthdate = binding.tvDatepicker.getText().toString();
                 if (validateEmail() == true) {
                     Intent intent = new Intent(getBaseContext(), SettingActivity.class);
@@ -111,8 +113,27 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
+//    private void Resister(String email,String password) {
+//        mAuth= FirebaseAuth.getInstance();
+//
+//        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this,task -> {
+//            if (task.isSuccessful()) {
+//                // Sign in success, update UI with the signed-in user's information
+//                //Log.d(TAG, "createUserWithEmail:success");
+//                FirebaseUser user = mAuth.getCurrentUser();
+//                updateUI(user);
+//            } else {
+//                // If sign in fails, display a message to the user.
+//                Log.w("task", "createUserWithEmail:failure", task.getException());
+//
+//                updateUI(null);
+//            }
+//        }
+//    });
 
-        private boolean validateEmail () {//لفحص الايميل
+
+
+    private boolean validateEmail () {//لفحص الايميل
             String emailInput = binding.edEmail.getText().toString().trim();
 
             if (emailInput.isEmpty()) {// اذا تركنا الايميل فارغ
@@ -129,5 +150,8 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-
 }
+
+
+
+

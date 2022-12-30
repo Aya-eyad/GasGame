@@ -1,67 +1,64 @@
-package com.example.gasgame.RoomDataDase;
+package com.example.gasgame.Roomdatabase;
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Delete;
-import androidx.room.Insert;
-import androidx.room.Update;
 
-import com.example.gasgame.RoomDataDase.Dao.DaoInformationPerson;
-import com.example.gasgame.RoomDataDase.Dao.DaoPuzzleData;
-import com.example.gasgame.RoomDataDase.Dao.DaoScroll;
-import com.example.gasgame.RoomDataDase.Dao.DaoStageData;
-import com.example.gasgame.RoomDataDase.Entity.EntityIformationPerson;
-import com.example.gasgame.RoomDataDase.Entity.EntityPuzzleData;
-import com.example.gasgame.RoomDataDase.Entity.EntityScroll;
-import com.example.gasgame.RoomDataDase.Entity.EntityStageData;
+import com.example.gasgame.Roomdatabase.Dao.DaoInformation;
+import com.example.gasgame.Roomdatabase.Dao.Daolevel;
+import com.example.gasgame.Roomdatabase.Dao.Daopattern;
+import com.example.gasgame.Roomdatabase.Dao.Daoqustion;
+import com.example.gasgame.Roomdatabase.Entity.IformationEntiry;
+import com.example.gasgame.Roomdatabase.Entity.LevelEntity;
+import com.example.gasgame.Roomdatabase.Entity.PatternEntity;
+import com.example.gasgame.Roomdatabase.Entity.QustionEntity;
 
 import java.util.List;
 
 public class Reposetry {
-    DaoScroll daoScroll;
-    DaoInformationPerson daoInformationPerson;
-    DaoStageData daoStageData;
-    DaoPuzzleData daoPuzzleData;
+    Daopattern daopattern;
+    DaoInformation daoInformationPerson;
+    Daolevel daolevel;
+    Daoqustion daoqustion;
     public Reposetry(Application application){
 
 MyRoomDatabase myRoomDatabase= MyRoomDatabase.getDatabase(application);
-daoScroll=myRoomDatabase.daoScroll();
-daoInformationPerson=myRoomDatabase.daoInformationPerson();
-daoPuzzleData=myRoomDatabase.daoPuzzleData();
-daoStageData=myRoomDatabase.daoStageData();
+daopattern=myRoomDatabase.daopattern();
+daoInformationPerson=myRoomDatabase.daoInformation();
+daoqustion=myRoomDatabase.daoqustion();
+daolevel=myRoomDatabase.daolevel();
     }
 
-  public   void insertScroll(EntityScroll scroll){
+  public   void insertpattern(PatternEntity patternEntity){
 MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
     @Override
     public void run() {
-        daoScroll.insertScroll(scroll);
+        daopattern.insertpattern(patternEntity);
     }
 });  }
 
-   public void deletScroll(EntityScroll scroll){
+   public void deletpattern(PatternEntity patternEntity){
        MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
            @Override
            public void run() {
-               daoScroll.deletScroll(scroll);
+               daopattern.deletpattern(patternEntity);
            }
        });
 
    }
 
-   public void updateScroll(EntityScroll scroll){
+   public void updatepattern(PatternEntity patternEntity){
        MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
            @Override
            public void run() {
-               daoScroll.updateScroll(scroll);
+               daopattern.updatepattern(patternEntity);
            }
        });
    };
 
 /////////////////////////////////informationperson////////////////////////////////////
 
-   public void insertinfoemation(EntityIformationPerson iformationPerson){
+   public void insertinfoemation(IformationEntiry iformationPerson){
         MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -70,7 +67,7 @@ MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
         });
     }
 
-   public void deletinfoemation(EntityIformationPerson iformationPerson){
+   public void deletinfoemation(IformationEntiry iformationPerson){
         MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -79,7 +76,7 @@ MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
         });
     };
 
-  public   void updateinfoemation(EntityIformationPerson iformationPerson){
+  public   void updateinfoemation(IformationEntiry iformationPerson){
         MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -87,67 +84,68 @@ MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             }
         });
     };
-    LiveData< List<EntityIformationPerson>> getallinformation(){
+    LiveData< List<IformationEntiry>> getallinformation(){
         return daoInformationPerson.getallinformation();
     }
-////////////////////////////stage///////////////////////////////
+////////////////////////////level///////////////////////////////
 
-void insertStageData(EntityStageData stageData){
+void insertlevel(LevelEntity entitylevel){
     MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
         @Override
         public void run() {
-            daoStageData.insertStageData(stageData);
+            daolevel.insertlevel(entitylevel);
+
         }
     });
 }
 
-    void deletStageData(EntityStageData stageData){
+    void deletlevel(LevelEntity entitylevel){
         MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                daoStageData.deletStageData(stageData);
+                daolevel.deletlevel(entitylevel);
             }
         });
     }
 
-    void updateStageData(EntityStageData stageData){
+    void updatelevel(LevelEntity entitylevel){
         MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                daoStageData.updateStageData(stageData);
+                daolevel.updatelevel(entitylevel);
             }
         });
     }
-    LiveData<List<EntityStageData>> getallstagedata(){
-        return daoStageData.getallstagedata();
+    LiveData<List<LevelEntity>> getalllevel(){
+        return       daolevel.getalllevel();
 
     }
 
-/////////////////////puzzle//////////////////////////
+/////////////////////Qustion//////////////////////////
 
-void insertPuzzleData(EntityPuzzleData puzzleData){
+void insertqustion(QustionEntity qustionEntity){
     MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
         @Override
         public void run() {
-            daoPuzzleData.insertPuzzleData(puzzleData);
+            daoqustion.insertqustion(qustionEntity);
         }
     });
 }
 
-    void deletPuzzleData(EntityPuzzleData puzzleData){
+    void deletqustion(QustionEntity qustionEntity){
         MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                daoPuzzleData.deletPuzzleData(puzzleData);
+                daoqustion.deletqustion(qustionEntity);
             }
         });
     }
 
-    void updatePuzzleData(EntityPuzzleData puzzleData){
+    void updatequstion(QustionEntity qustionEntity){
         MyRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                daoPuzzleData.updatePuzzleData(puzzleData);
+                daoqustion.updatequstion(qustionEntity);
             }
         });
     }

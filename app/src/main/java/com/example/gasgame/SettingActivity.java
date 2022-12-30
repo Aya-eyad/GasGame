@@ -1,6 +1,8 @@
 package com.example.gasgame;
 
-
+//الصوت زابط
+// الانتقال للشاشه التسجيل زابط
+//*********************باقى النيتفيكيشن والمسح المعلوانات**************************************//////////
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,15 +25,15 @@ public class SettingActivity extends AppCompatActivity {
         binding = ActivitySettingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.tvProfile.setOnClickListener(view -> {
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+        binding.tvSignin.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext(), SigninActivity.class));
         });
 
 
         binding.btnClear.setOnClickListener(view -> {
 
         });
-//لهين زبط يكتم الصوت بس ما برجعو يشتغل
+
         binding.soundSw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

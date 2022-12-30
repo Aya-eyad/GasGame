@@ -11,7 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gasgame.RoomDataDase.Entity.EntityStageData;
+
+import com.example.gasgame.Roomdatabase.Entity.LevelEntity;
 import com.example.gasgame.databinding.ItemGamestageBinding;
 import com.example.gasgame.databinding.ItemGamestageBinding;
 
@@ -19,12 +20,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterGameStage extends RecyclerView.Adapter<AdapterGameStage.Adapterholder> {
-    public AdapterGameStage(List<EntityStageData> stageDataList) {
-        this.stageDataList = stageDataList;
+    public interface OnClick {
+        void onclick(int pos);
     }
 
-    List<EntityStageData>stageDataList;
+    List<LevelEntity>levelEntities;
+OnClick onClick;
 
+    public AdapterGameStage(List<LevelEntity> levelEntities, OnClick onClick) {
+        this.levelEntities = levelEntities;
+        this.onClick = onClick;
+    }
 
     @NonNull
     @Override
@@ -38,14 +44,18 @@ public class AdapterGameStage extends RecyclerView.Adapter<AdapterGameStage.Adap
     @Override
     public void onBindViewHolder(@NonNull Adapterholder holder, int position) {
         int pos = position;
-        EntityStageData stageDataobject=stageDataList.get(pos);
-        holder.stage1.setText(stageDataobject.getNumOfStage());
+        LevelEntity object=levelEntities.get(pos);
+        holder.stage1.setText(object.getNumOfStage());
+        holder.numOfPointRequird.setText(object.getNumOfPointRequird());
+        holder.itemView.setOnClickListener(view -> {
+            onClick.onclick(pos);
+        });
 
 
     }
     @Override
     public int getItemCount() {
-        return stageDataList !=null?stageDataList.size():0;
+        return levelEntities !=null?levelEntities.size():0;
     }
 
 

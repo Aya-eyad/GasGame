@@ -1,4 +1,4 @@
-package com.example.gasgame.RoomDataDase;
+package com.example.gasgame.Roomdatabase;
 
 import androidx.room.TypeConverter;
 

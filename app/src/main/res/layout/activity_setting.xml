@@ -36,9 +36,9 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_clear"
-        android:layout_width="170dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginTop="50dp"
+        android:layout_margin="50dp"
         android:background="@drawable/shape_in_rectangle"
         android:backgroundTint="#CF9134"
         android:text="@string/Start_over"
@@ -50,16 +50,16 @@
         app:layout_constraintTop_toBottomOf="@+id/notification_sw" />
 
     <TextView
-        android:id="@+id/tv_profile"
-        android:layout_width="170dp"
+        android:id="@+id/tv_signin"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="56dp"
-        android:text="@string/Sign_in"
-        android:textSize="25sp"
-        android:textColor="@color/black"
-        android:gravity="center"
+        android:layout_margin="50dp"
         android:background="@drawable/shape_in_rectangle"
         android:backgroundTint="#EDA943"
+        android:gravity="center"
+        android:text="@string/Sign_in"
+        android:textColor="@color/black"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_clear" />
